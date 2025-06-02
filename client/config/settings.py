@@ -1,10 +1,12 @@
 """
 Configuration settings for MCP Chat Client
 """
-
+import os
+import dotenv
+dotenv.load_dotenv()
 # OpenAI API Configuration
 OPENAI_CONFIG = {
-    "api_key": "eyJhbGciOiJIUzI1NiIsImtpZCI6IlV6SXJWd1h0dnprLVRvdzlLZWstc0M1akptWXBvX1VaVkxUZlpnMDRlOFUiLCJ0eXAiOiJKV1QifQ.eyJzdWIiOiJnb29nbGUtb2F1dGgyfDExMTc5NjU2NDUwODg5MzY2MTEwMiIsInNjb3BlIjoib3BlbmlkIG9mZmxpbmVfYWNjZXNzIiwiaXNzIjoiYXBpX2tleV9pc3N1ZXIiLCJhdWQiOlsiaHR0cHM6Ly9uZWJpdXMtaW5mZXJlbmNlLmV1LmF1dGgwLmNvbS9hcGkvdjIvIl0sImV4cCI6MTkwNTYwNzk3MSwidXVpZCI6IjcwZjMwYzlhLTRmN2MtNDEwOS1iM2NjLTU3OTExZWMzYTE4YSIsIm5hbWUiOiJtY3AiLCJleHBpcmVzX2F0IjoiMjAzMC0wNS0yMVQxNTozMjo1MSswMDAwIn0.uJZCgdCCZamazRCJKxLu5Ro9IjkypDamD2JAIJiPEpo",
+    "api_key": os.getenv("key"),
     "base_url": "https://api.studio.nebius.ai/v1",
     "model": "Qwen/Qwen3-32B-fast"
 }
