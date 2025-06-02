@@ -1,0 +1,39 @@
+{
+  "manifest_version": 2,
+  "name": "Tab Info Viewer",
+  "version": "1.0",
+  "description": "Press Ctrl+G to copy current tab content, Ctrl+E to copy all tabs as JSON.",
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "clipboardWrite"
+  ],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    "popup.html",
+    "popup.css"
+  ],
+  "commands": {
+    "copy-tab-info-html": {
+      "suggested_key": {
+        "default": "Ctrl+G"
+      },
+      "description": "Copy current tab content"
+    },
+    "copy-tab-info": {
+      "suggested_key": {
+        "default": "Ctrl+E"
+      },
+      "description": "Copy all tab information as JSON to clipboard"
+    }
+  }
+}
