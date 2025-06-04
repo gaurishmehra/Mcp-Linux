@@ -104,5 +104,5 @@ def memoryaccesstool(operation: str, memory: str = "", memory_id: int = None, fi
 
 memory_tool_description = """A tool used to access external memory for saving, reading information about the user.
 Use only operation = read, to read, operation = write & memory = <content> to write, and operation = edit & memory_id = <id> to remove a memory.
-You must say any and all information you deem even slightly useful about the user, for smoother future interactions.
+You must save any and all information you deem even slightly useful about the user, for smoother future interactions.
 """
