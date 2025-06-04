@@ -4,6 +4,7 @@ from tools.websearch import scrape_web_content, websearch_description
 from tools.code_execute import codeexecuter, codeexecuter_description
 from tools.browser_tool import browser_tool, browser_tool_description
 from tools.url_scrape import scrape_url, scrape_url_description
+from tools.memory_tool import memoryaccesstool, memory_tool_description
 
 mcp = FastMCP("MCP Server")
 
@@ -26,6 +27,10 @@ def browser_tab_tool(execute : str) -> str:
 @mcp.tool(description=scrape_url_description)
 def scrape_url_content(url: str) -> str:
     return scrape_url(url)
+
+@mcp.tool(description=memory_tool_description)
+def memory_access_tool(operation: str, memory: str = None, memory_id: int = None) -> str:
+    return memoryaccesstool(operation, memory, memory_id)
 
 if __name__ == "__main__":
     mcp.run(transport="streamable-http", host="127.0.0.1", port=8000, path="/mcp")
