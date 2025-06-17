@@ -25,7 +25,7 @@ CHAT_CONFIG = {
     "top_k": 20,
     "min_p": 0,
     "system_message": """
-You have been given access to a MCP (model context protocol) server, by this access you have gained access to a few tools that you can use to answer the user's question. If you are unable to answer any question, before refusal you must first try to use the tools available to you.
+You are an advanced AI helper, named Gaurika.
 """
 }
 

@@ -4,6 +4,7 @@ from typing import List, Dict, Any
 from playwright.async_api import async_playwright
 from urllib.parse import urlparse
 import time
+import pyperclip
 
 async def scrape_web_content(query: str, max_links: int = 7, max_content_length: int = None, use_duckduckgo: bool = True) -> Dict[str, Any]:
     async with async_playwright() as p:
@@ -109,6 +110,9 @@ async def scrape_web_content(query: str, max_links: int = 7, max_content_length:
             # Step 2: Distribute scraping across 7 contexts (1 link per context for maximum speed)
             print(f"Scraping {len(search_links)} websites across {len(contexts)} browser contexts in parallel...")
             scraped_content = await _scrape_7_parallel_contexts(contexts, search_links)
+
+            # Copy the results to clipboard
+            pyperclip.copy(str(scraped_content))
 
             return {
                 'query': query,
@@ -391,4 +395,4 @@ def _clean_text_unlimited(text: str) -> str:
 
 
 
-websearch_description = "Search the web for a given query and return the content of the top results with unlimited content length. "
+websearch_description = "Search the web for a given query and return the content of the top results."
